@@ -1,0 +1,100 @@
+.ReelButton-label {
+  display: inline-block;
+  padding: 1px 4px;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.ReelModal {
+  .Modal-body {
+    padding-top: 12px;
+  }
+}
+
+.ReelModal-search {
+  position: relative;
+  margin-bottom: 10px;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+    pointer-events: none;
+  }
+
+  input {
+    width: 100%;
+    padding-left: 36px;
+  }
+}
+
+.ReelModal-heading {
+  margin: 0 0 8px;
+  color: var(--muted-color);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+// Masonry: GIFs keep their own proportions instead of being cropped. Columns
+// are filled by ReelModal::columns(), so items never move as more load.
+.ReelModal-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.ReelModal-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.ReelModal-item {
+  display: block;
+  width: 100%;
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--control-bg);
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: -3px;
+  }
+}
+
+.ReelModal-sentinel {
+  min-height: 24px;
+  text-align: center;
+}
+
+.ReelModal-empty,
+.ReelModal-error {
+  padding: 20px 0;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+.ReelModal-credit {
+  margin: 8px 0 0;
+  color: var(--muted-color);
+  font-size: 11px;
+  text-align: right;
+}
