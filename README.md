@@ -52,9 +52,11 @@ composer update ernestdefoe/reel
 php flarum cache:clear
 ```
 
-## Discuss
+## Support
 
-Questions, ideas and release notes: [Reel on discuss.flarum.org](https://discuss.flarum.org/d/39997-reel).
+- **Support forum:** [Reel on ernestdefoe.online](https://ernestdefoe.online/d/122)
+- **Flarum community:** [Reel on discuss.flarum.org](https://discuss.flarum.org/d/39997-reel)
+- **Bug reports:** [GitHub issues](https://github.com/ernestdefoe/reel/issues)
 
 ## Licence
 
