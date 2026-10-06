@@ -52,6 +52,10 @@ composer update ernestdefoe/reel
 php flarum cache:clear
 ```
 
+## Discuss
+
+Questions, ideas and release notes: [Reel on discuss.flarum.org](https://discuss.flarum.org/d/39997-reel).
+
 ## Licence
 
 MIT. See [LICENSE](LICENSE).
