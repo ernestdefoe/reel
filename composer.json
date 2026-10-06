@@ -6,6 +6,7 @@
     "license": "MIT",
     "homepage": "https://github.com/ernestdefoe/reel",
     "support": {
+        "forum": "https://discuss.flarum.org/d/39997-reel",
         "issues": "https://github.com/ernestdefoe/reel/issues",
         "source": "https://github.com/ernestdefoe/reel"
     },
