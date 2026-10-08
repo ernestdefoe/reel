@@ -10,7 +10,11 @@ app.initializers.add('ernestdefoe-reel', () => {
 
     items.add(
       'reel',
-      <TextEditorButton className="Button Button--link ReelButton" onclick={() => app.modal.show(ReelModal)} title={app.translator.trans('ernestdefoe-reel.forum.button')}>
+      <TextEditorButton
+        className="Button Button--link ReelButton"
+        onclick={() => app.modal.show(ReelModal)}
+        title={app.translator.trans('ernestdefoe-reel.forum.button')}
+      >
         <span className="ReelButton-label" aria-hidden="true">
           GIF
         </span>
