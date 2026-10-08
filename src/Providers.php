@@ -22,7 +22,7 @@ class Providers
 
     public function key(): string
     {
-        return trim((string) $this->settings->get('ernestdefoe-reel.' . $this->name() . '_key', ''));
+        return trim((string) $this->settings->get('ernestdefoe-reel.'.$this->name().'_key', ''));
     }
 
     public function configured(): bool

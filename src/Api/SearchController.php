@@ -52,13 +52,13 @@ class SearchController implements RequestHandlerInterface
         $rating = $this->providers->rating();
         $locale = (string) $this->translator->getLocale();
 
-        $key = 'reel.' . sha1(implode('|', [$this->providers->name(), $rating, $locale, mb_strtolower($query), $offset]));
+        $key = 'reel.'.sha1(implode('|', [$this->providers->name(), $rating, $locale, mb_strtolower($query), $offset]));
 
         try {
             $result = $this->cache->remember($key, 600, fn () => $provider->search($query, $offset, self::PER_PAGE, $rating, $locale));
         } catch (\Throwable $e) {
             // The provider's message can contain the request URL, and so the key.
-            $this->log->warning('[reel] ' . $provider->credit() . ' search failed: ' . preg_replace('/(api_key=|\/api\/v1\/)[^&\/\s]+/', '$1***', $e->getMessage()));
+            $this->log->warning('[reel] '.$provider->credit().' search failed: '.preg_replace('/(api_key=|\/api\/v1\/)[^&\/\s]+/', '$1***', $e->getMessage()));
 
             return $this->error('unavailable', 502);
         }
@@ -70,8 +70,8 @@ class SearchController implements RequestHandlerInterface
     {
         return new JsonResponse(['errors' => [[
             'status' => (string) $status,
-            'code'   => 'reel_' . $code,
-            'detail' => $this->translator->trans('ernestdefoe-reel.lib.errors.' . $code),
+            'code' => 'reel_'.$code,
+            'detail' => $this->translator->trans('ernestdefoe-reel.lib.errors.'.$code),
         ]]], $status);
     }
 }

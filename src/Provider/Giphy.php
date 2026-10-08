@@ -27,7 +27,7 @@ class Giphy implements Provider
             $params['lang'] = substr($locale, 0, 2);
         }
 
-        $body = json_decode((string) $this->http->get('https://api.giphy.com/v1/gifs/' . $path, ['query' => $params])->getBody(), true);
+        $body = json_decode((string) $this->http->get('https://api.giphy.com/v1/gifs/'.$path, ['query' => $params])->getBody(), true);
         $items = [];
 
         foreach ($body['data'] ?? [] as $gif) {
@@ -40,14 +40,14 @@ class Giphy implements Provider
             }
 
             $items[] = [
-                'id'          => (string) $gif['id'],
-                'title'       => trim((string) ($gif['title'] ?? '')),
-                'thumb'       => $thumb['webp'] ?? $thumb['url'],
-                'thumbWidth'  => (int) ($thumb['width'] ?? 200),
+                'id' => (string) $gif['id'],
+                'title' => trim((string) ($gif['title'] ?? '')),
+                'thumb' => $thumb['webp'] ?? $thumb['url'],
+                'thumbWidth' => (int) ($thumb['width'] ?? 200),
                 'thumbHeight' => (int) ($thumb['height'] ?? 200),
-                'url'         => $full['url'],
-                'width'       => (int) ($full['width'] ?? 0),
-                'height'      => (int) ($full['height'] ?? 0),
+                'url' => $full['url'],
+                'width' => (int) ($full['width'] ?? 0),
+                'height' => (int) ($full['height'] ?? 0),
             ];
         }
 

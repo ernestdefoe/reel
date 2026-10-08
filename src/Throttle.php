@@ -23,7 +23,7 @@ class Throttle
         }
 
         $actor = RequestUtil::getActor($request);
-        $key = 'reel.throttle.' . ($actor->isGuest() ? 'ip.' . sha1((string) $request->getAttribute('ipAddress')) : $actor->id) . '.' . intdiv(time(), 60);
+        $key = 'reel.throttle.'.($actor->isGuest() ? 'ip.'.sha1((string) $request->getAttribute('ipAddress')) : $actor->id).'.'.intdiv(time(), 60);
 
         $this->cache->add($key, 0, 120);
         $count = $this->cache->increment($key);

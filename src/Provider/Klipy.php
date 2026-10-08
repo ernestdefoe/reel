@@ -27,11 +27,11 @@ class Klipy implements Provider
         // KLIPY pages by number; Reel speaks offsets so both providers look alike.
         $page = intdiv($offset, $limit) + 1;
         $params = [
-            'page'           => $page,
-            'per_page'       => $limit,
+            'page' => $page,
+            'per_page' => $limit,
             'content_filter' => self::FILTER[$rating] ?? 'medium',
-            'format_filter'  => 'gif,webp',
-            'locale'         => substr($locale, 0, 2),
+            'format_filter' => 'gif,webp',
+            'locale' => substr($locale, 0, 2),
         ];
         $path = 'trending';
 
@@ -40,7 +40,7 @@ class Klipy implements Provider
             $params['q'] = $query;
         }
 
-        $url = 'https://api.klipy.com/api/v1/' . rawurlencode($this->key) . '/gifs/' . $path;
+        $url = 'https://api.klipy.com/api/v1/'.rawurlencode($this->key).'/gifs/'.$path;
         $body = json_decode((string) $this->http->get($url, ['query' => $params])->getBody(), true);
         $data = $body['data'] ?? [];
         $items = [];
@@ -61,14 +61,14 @@ class Klipy implements Provider
             }
 
             $items[] = [
-                'id'          => (string) ($gif['slug'] ?? $gif['id'] ?? ''),
-                'title'       => trim((string) ($gif['title'] ?? '')),
-                'thumb'       => $thumb['url'],
-                'thumbWidth'  => (int) ($thumb['width'] ?? 200),
+                'id' => (string) ($gif['slug'] ?? $gif['id'] ?? ''),
+                'title' => trim((string) ($gif['title'] ?? '')),
+                'thumb' => $thumb['url'],
+                'thumbWidth' => (int) ($thumb['width'] ?? 200),
                 'thumbHeight' => (int) ($thumb['height'] ?? 200),
-                'url'         => $full['url'],
-                'width'       => (int) ($full['width'] ?? 0),
-                'height'      => (int) ($full['height'] ?? 0),
+                'url' => $full['url'],
+                'width' => (int) ($full['width'] ?? 0),
+                'height' => (int) ($full['height'] ?? 0),
             ];
         }
 
